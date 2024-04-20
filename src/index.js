@@ -10,7 +10,19 @@ dotenv.config({
     path :'./.env'
 }) // ye require walw me nahi krna
 
-connectDB();
+connectDB()
+.then(()=>{
+    app.listen(process.env.PORT || 3000, ()=>{
+        console.log(`app is running at port :${process.env.PORT}` );
+    })
+})
+.catch((error)=>{
+    console.log("ERROR MONGODB connection failed ", error);
+})
+
+
+
+
 // ek bbat ratlo database dusre continent me h to time lgta
 // error bhi bahut aati h
 // to hamesha try catch or async await ka use krna
