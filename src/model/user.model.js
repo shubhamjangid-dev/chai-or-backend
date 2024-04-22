@@ -57,7 +57,7 @@ userSchema.pre("save", async function(next){ // arrow function mt use krna kyuki
     // pr har baar password thodi change krna h
     // naye user or pass word change pe hi krna h
     if(this.isModified("password"))
-        this.password = bcrypt.hash(this.password, 10);
+        this.password = await bcrypt.hash(this.password, 10);
     next();
 })
 
