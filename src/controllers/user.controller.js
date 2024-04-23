@@ -1,4 +1,4 @@
- import {asyncHandler} from "../utils/asyncHandler.js";
+ import { asyncHandler } from "../utils/asyncHandler.js";
  import { ApiError } from "../utils/ApiError.js";
  import { user } from "../model/user.model.js";
  import { uploadOnCloudinary } from "../utils/cloudinary.js"
@@ -43,7 +43,7 @@
 
 
     
-    const userExist = user.findOne({
+    const userExist = await user.findOne({
         $or : [{username},{email}]
     })
     if(userExist)
@@ -69,7 +69,7 @@
         throw new ApiError(400, "Avatar path error")
     }
 
-    const user = await user.create({
+    const userdata = await user.create({
         fullname,
         avatar : avatar.url,
         coverImage : coverImage?.url || "",
@@ -78,7 +78,7 @@
         username : username.toLowerCase()
     })
 
-    const createdUser = await user.findById(user._id).select(
+    const createdUser = await user.findById(userdata._id).select(
         "-password -refreshTokens"
     )
 

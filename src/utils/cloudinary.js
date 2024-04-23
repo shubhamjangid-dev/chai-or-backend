@@ -13,7 +13,10 @@ const uploadOnCloudinary = async (localFilePath)=>{
             resource_type: "auto" 
         })
         // file has been uploaded successfully
-        console.log((await responce).url);
+        // console.log((await responce).url);
+
+        fs.unlink(localFilePath)// delete file from public/temp
+
         return responce;
     } catch (error) {
         fs.unlink(localFilePath) // remove the locally saved temporary file as the upoad operation got failed

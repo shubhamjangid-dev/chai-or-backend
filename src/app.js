@@ -20,7 +20,9 @@ import userRouter from "./routes/user.routes.js"
 // Routes Declaration
 // ex : http:localhost:4000/api/v1/users/register to ye prefix match krega 
 // ex : http:localhost:4000/api/v1/users/login to login or register user sirg routes me hi honge 
+
 app.use("/api/v1/users",userRouter);
+
 // app.use("/api/v1/users",()=>{
 //     console.log("chal raah h");
 // });

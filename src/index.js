@@ -1,12 +1,12 @@
-// require('dotenv').config() // proper tarika niche h
-
-import dotenv from "dotenv";
 // import mongoose from "mongoose";             // ye dono db folder me transfer kr diya
 // import { DB_NAME } from "./constants";       // database connection db folder me hi hoga
 import express from "express";
 import connectDB from "./db/index.js"
 import {app} from "./app.js"
-// const app = express();
+// const app = express(); 
+
+// require('dotenv').config() // proper tarika niche h
+import dotenv from "dotenv";
 dotenv.config({
     path :'./.env'
 }) // ye require walw me nahi krna
