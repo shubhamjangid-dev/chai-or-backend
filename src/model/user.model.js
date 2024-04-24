@@ -63,7 +63,7 @@ userSchema.pre("save", async function(next){ // arrow function mt use krna kyuki
 
 // login krte waqt password sahi h ya galat h vo bhi check krna h
 // creating own method
-userSchema.methods.isPasswordCorrect = async function(){
+userSchema.methods.isPasswordCorrect = async function(password){
     return await bcrypt.compare(password, this.password) // 1st parameter is password and 2nd is incrypted password
 }
 
@@ -91,4 +91,5 @@ userSchema.methods.generateRefreshToken = function(){
     }
     )
 }
-export const user = mongoose.model("User", userSchema);
+
+export const User = mongoose.model("User", userSchema);

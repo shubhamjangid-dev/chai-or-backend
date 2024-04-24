@@ -9,17 +9,18 @@ cloudinary.config({
 
 const uploadOnCloudinary = async (localFilePath)=>{
     try {
+        // if(!localFilePath) return null;
         const responce = cloudinary.uploader.upload(localFilePath,{ 
             resource_type: "auto" 
         })
         // file has been uploaded successfully
-        // console.log((await responce).url);
+        console.log((await responce).url);
 
-        fs.unlink(localFilePath)// delete file from public/temp
+        fs.unlinkSync(localFilePath)// delete file from public/temp
 
         return responce;
     } catch (error) {
-        fs.unlink(localFilePath) // remove the locally saved temporary file as the upoad operation got failed
+        fs.unlinkSync(localFilePath) // remove the locally saved temporary file as the upoad operation got failed
         return null;
     }
 }
