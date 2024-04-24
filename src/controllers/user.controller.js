@@ -178,7 +178,7 @@
     )
 
     const option = {
-        httpOny : true,
+        httpOnly : true,
         secure : true
     }
 
